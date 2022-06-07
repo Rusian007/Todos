@@ -26,7 +26,7 @@ nav{
   top: 50%;
   left: 50%;
   transform: translate(-50%,-50%);
-  z-index: 998;
+  z-index: 999;
   background-color:white;
   padding: 10px;
   border:4px solid #ffc156;
@@ -44,12 +44,13 @@ input{
 }
 .darken{
   position: absolute;
-  z-index:999;
+  z-index:899;
   background-color: rgba(211, 211, 211, 0.69);
 
   width:100vw;
   height:100vh;
 }
 .hidden{
+
   display: none;
 }

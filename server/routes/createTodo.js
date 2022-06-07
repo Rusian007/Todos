@@ -30,9 +30,7 @@ router.post('/create', async (req,res)=>{
     try {
       const savedTodo = await newTodo.save()
       res.send({
-        todo: savedTodo._id,
-        leftSide: savedTodo.isLeft,
-        message: "Saved ! :)"
+        TodoList: [savedTodo]
       })
     } catch (e) {
 

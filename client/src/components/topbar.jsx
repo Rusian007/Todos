@@ -2,27 +2,24 @@
 import React,{Fragment} from 'react';
 import './topbar.css';
 
-const TopBar = () =>{
+const TopBar = (props) =>{
+  var divShow = false
 
   const showdiv =(e)=>{
-    var theHiddenDiv = document.getElementById("hiddenDiv")
-    theHiddenDiv.classList.remove("hidden");
-  }
-  const submitLogic=(e)=>{
-    var theHiddenDiv = document.getElementById("hiddenDiv")
-    theHiddenDiv.classList.add("hidden");
 
-    var thevalue = document.getElementById("theAddListInput")
-    if(thevalue.value){
-      console.log(thevalue.value);
-      //send request with this value
-      //Clean the input value
-    }
-    else{
-      alert("You did not Enter anything 😞 ")
+    if (divShow){
+      var theHiddenDiv = document.getElementById("hiddenDiv")
+      theHiddenDiv.classList.add("hidden");
+      divShow = false
+    } else{
+      var theHiddenDiv = document.getElementById("hiddenDiv")
+      theHiddenDiv.classList.remove("hidden");
+      divShow = true
     }
 
   }
+
+
 
   return(
 
@@ -36,12 +33,12 @@ const TopBar = () =>{
 
     </nav>
 
-    <div id="hiddenDiv" className="hidden">
+    <div  id="hiddenDiv" className="hidden">
     <div className="darken">
       <div className="addfield">
         <h2>Enter new Task !</h2>
         <input type="text" name="text" id="theAddListInput" />
-        <button onClick={submitLogic} className="btn"> Submit +</button>
+        <button onClick={()=>{props.valueSubmitCallBack(); divShow = false}} className="btn"> Submit +</button>
       </div>
     </div>
     </div>
