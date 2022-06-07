@@ -44,4 +44,11 @@ router.post('/create', async (req,res)=>{
   }
 })
 
+router.get("/get", async (req,res)=>{
+  var allTodos = await Todos.find({});
+  return res.json({
+    TodoList: allTodos
+  })
+})
+
 module.exports = router
