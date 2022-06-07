@@ -1,5 +1,6 @@
 import { useState,useEffect } from 'react'
 import './App.css'
+import TopBar from './components/topbar'
 
 function App() {
   const [data, setData] = useState(null)
@@ -15,12 +16,13 @@ useEffect(() => {
 },[])
 
   return (
-
+<>
+<TopBar />
 <div className="timeline">
 
     {data? data.map((item) => (
 
-      <div className={item.isLeft?"container left":"container right"}>
+      <div key={item._id} id={item._id} className={item.isLeft?"container left":"container right"}>
         <div className="content">
           <h2>{item.text}</h2>
           <p>....</p>
@@ -31,16 +33,8 @@ useEffect(() => {
       :""}
 
 </div>
-
+</>
   )
 }
-/*<ul>
 
-{data? data.map((item) => (
-    <li id={item._id} key={item._id}>
-      {item.text}
-    </li>
-  ))
-  :<li>Add new One</li>}
-  </ul> */
 export default App

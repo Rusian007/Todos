@@ -95,8 +95,9 @@ body {
 /* The actual content */
 .content {
   padding: 20px 30px;
-  background-color: #ffc156;
+  background-color: white;
   position: relative;
+  border: 6px solid #ffc156;
   border-radius: 6px;
 }
 
